@@ -1,0 +1,10 @@
+node_modules/
+dist/
+data/
+*.log
+__pycache__/
+*.pyc
+.venv/
+tanbo-server.exe
+cloudflared.log
+cloudflared_err.log
