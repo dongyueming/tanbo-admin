@@ -121,15 +121,17 @@ def delete_item(t, item_id):
     return jsonify({'ok': True})
 
 # 静态文件
+DIST_DIR = os.path.join(os.path.dirname(__file__), '..', 'dist')
+
 @app.route('/')
 def index():
-    return send_from_directory('dist', 'index.html')
+    return send_from_directory(DIST_DIR, 'index.html')
 
 @app.route('/<path:path>')
 def static_files(path):
-    if os.path.exists(os.path.join('dist', path)):
-        return send_from_directory('dist', path)
-    return send_from_directory('dist', 'index.html')
+    if os.path.exists(os.path.join(DIST_DIR, path)):
+        return send_from_directory(DIST_DIR, path)
+    return send_from_directory(DIST_DIR, 'index.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
