@@ -121,7 +121,7 @@ def delete_item(t, item_id):
     return jsonify({'ok': True})
 
 # 静态文件
-DIST_DIR = os.path.join(os.path.dirname(__file__), '..', 'dist')
+DIST_DIR = 'dist'
 
 @app.route('/')
 def index():
