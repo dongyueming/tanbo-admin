@@ -3,7 +3,7 @@ from flask_cors import CORS
 import json, os, hashlib, secrets
 from datetime import datetime
 
-app = Flask(__name__, static_folder='dist', static_url_path='')
+app = Flask(__name__, static_folder='../dist', static_url_path='')
 app.secret_key = os.environ.get('SECRET_KEY', secrets.token_hex(32))
 CORS(app, supports_credentials=True)
 
