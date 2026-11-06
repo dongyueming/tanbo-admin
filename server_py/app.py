@@ -120,6 +120,17 @@ def delete_item(t, item_id):
     save_data(t, data)
     return jsonify({'ok': True})
 
+@app.route('/api/debug')
+def debug():
+    import os
+    return jsonify({
+        'cwd': os.getcwd(),
+        '__file__': __file__,
+        'dist_dir': DIST_DIR,
+        'dist_exists': os.path.exists(DIST_DIR),
+        'files': os.listdir(DIST_DIR) if os.path.exists(DIST_DIR) else []
+    })
+
 # 静态文件
 DIST_DIR = 'dist'
 
